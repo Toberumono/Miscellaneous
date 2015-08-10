@@ -5,9 +5,19 @@ if [ "$(which ruby)" == "" ]; then
 	need="ruby"
 	if [ "$(which git)" == "" ]; then
 		need=$need" git"
+		if [ "$(which curl)" == "" ]; then
+			need=$need" curl"
+		fi
+	elif [ "$(which curl)" == "" ]; then
+		need=$need" curl"
 	fi
 elif [ "$(which git)" == "" ]; then
 	need="git"
+	if [ "$(which curl)" == "" ]; then
+		need=$need" curl"
+	fi
+elif [ "$(which curl)" == "" ]; then
+	need=$need"curl"
 fi
 
 if [ "$need" != "" ]; then
