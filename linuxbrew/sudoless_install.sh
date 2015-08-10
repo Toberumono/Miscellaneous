@@ -20,7 +20,7 @@ if [ ! -e "$HOME/.linuxbrew" ]; then
 	if [ "$(which curl)" != "" ]; then
 		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 	else
-		git clone "https://github.com/Homebrew/linuxbrew.git" "~/.linuxbrew"
+		git clone "https://github.com/Homebrew/linuxbrew.git" "$HOME/.linuxbrew"
 	fi
 fi
 bash <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/linuxbrew/append_paths.sh")
