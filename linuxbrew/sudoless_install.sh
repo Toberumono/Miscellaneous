@@ -5,6 +5,7 @@ if [ "$(which ruby)" == "" ]; then
 	need="ruby"
 	if [ "$(which git)" == "" ]; then
 		need=$need" git"
+	fi
 elif [ "$(which git)" == "" ]; then
 	need="git"
 fi
