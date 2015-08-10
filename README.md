@@ -4,7 +4,7 @@ A collection of potentially useful scripts and support files that don't fit into
 ## <a name="linuxbrew"></a>Linuxbrew
 All of the files in this directory relate to linuxbrew, a generally automate a part of its installation.
 
-### <a name="htusi"></a>How to use "sudoless_install.sh"
+### <a name="htulsi"></a>How to use "sudoless_install.sh"
 Run the following command in terminal (make sure you copy and paste all of it):
 ```bash
 bash <(wget -qO - https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/linuxbrew/sudoless_install.sh)
@@ -32,7 +32,7 @@ The script (`linuxbrew/sudoless_install.sh`) itself does the following:
 
 ---------------------------------
 
-### <a name="htuah"></a>How to Use "append_paths.sh"
+### <a name="htulap"></a>How to Use "append_paths.sh"
 Run the following command in terminal (make sure you copy and paste all of it):
 ```bash
 bash <(wget -qO - https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/linuxbrew/append_paths.sh)
