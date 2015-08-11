@@ -11,9 +11,7 @@ update_rc() {
 	shift
 	for p in $@; do
 		add_path=$(grep -F -e 'export '$p "$file_path")
-		grep -F -e 'export '$p "$file_path"
-		echo $add_path
-		if ( ! $add_path ); then
+		if [ "$add_path" != "" ]; then
 			echo 'export '$p" is already in $file_path"
 			continue;
 		fi
