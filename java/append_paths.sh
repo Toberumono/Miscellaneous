@@ -12,7 +12,7 @@ update_rc() {
 	for p in $@; do
 		add_path=$(grep -F -e 'export '$p "$file_path")
 		if [ "$add_path" != "" ]; then
-			echo 'export '$p" is already in $file_path"
+			echo 'export '$p" is already in $file_path."
 			continue;
 		fi
 		if ( ! $added ); then
@@ -21,11 +21,11 @@ update_rc() {
 			[ "$should_reopen" == "" ] && should_reopen="$file_path" || should_reopen=$should_reopen" $file_path"
 			added=true
 		fi
-		echo "Adding export $p to $file_path"; echo 'export '$p >> "$file_path"
+		echo "Adding export $p to $file_path."; echo 'export '$p >> "$file_path"
 	done
 }
 
-paths=( 'PATH="'$jvm_current_path'/bin:$PATH"' 'MANPATH="'$jvm_current_path'/man:$MANPATH"' )
+paths=( 'PATH="$jvm_current_path/bin:$PATH"' 'MANPATH="$jvm_current_path/man:$MANPATH"' )
 
 [ -e "$HOME/.bashrc" ] && update_rc "$HOME/.bashrc" "${paths[@]}"
 [ -e "$HOME/.zshrc" ] && update_rc "$HOME/.zshrc" "${paths[@]}"
