@@ -1,6 +1,8 @@
-#As a bare minimum, we need ruby and git.
-need=""
+#Installs Linuxbrew without using sudo (if possible)
+#Author: Toberumono (https://github.com/Toberumono)
 
+#As a bare minimum, we need ruby, git, and curl.
+need=""
 if [ "$(which ruby)" == "" ]; then
 	need="ruby"
 	if [ "$(which git)" == "" ]; then

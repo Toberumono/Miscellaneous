@@ -1,32 +1,38 @@
 #Add Linuxbrew into PATH, MANPATH, and INFOPATH
-bin_path='PATH="$HOME/.linuxbrew/bin:$PATH"'
-man_path='MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"'
-info_path='INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"'
+#Author: Toberumono (https://github.com/Toberumono)
+
+linuxbrew_path='$HOME/.linuxbrew'
+
+client="Linuxbrew"
 should_reopen=""
 
 update_rc() {
-	add_bin=$(grep -F -e 'export '$bin_path "$1")
-	add_man=$(grep -F -e 'export '$man_path "$1")
-	add_info=$(grep -F -e 'export '$info_path "$1")
-
-	if [ "$add_bin" == "" ] || [ "$add_man" == "" ] || [ "$add_info" == "" ]; then
-		echo "" >> "$1"
-		echo "# This adds the necessary Linuxbrew paths." >> "$1"
-		should_reopen=$should_reopen"  $1"
-	fi
-
-	[ "$add_bin" == "" ]	&& echo "Adding 'export '$bin_path to $1" && echo 'export '$bin_path >> "$1" || echo "Linuxbrew is already added to PATH in $1"
-	[ "$add_man" == "" ]	&& echo "Adding 'export '$man_path to $1" && echo 'export '$man_path >> "$1" || echo "Linuxbrew is already added to MANPATH in $1"
-	[ "$add_info" == "" ]	&& echo "Adding 'export '$info_path to $1" && echo 'export '$info_path >> "$1" || echo "Linuxbrew is already added to INFOPATH in $1"
+	added=false
+	file_path="${1}"
+	shift
+	for p in $@; do
+		add_path=$(grep -F -e 'export '$p "$file_path")
+		if [ "$add_path" != "" ]; then
+			echo 'export '$p" is already in $file_path."
+			continue;
+		fi
+		if ( ! $added ); then
+			echo "" >> "$file_path"
+			echo "# This adds the necessary $client paths." >> "$file_path"
+			[ "$should_reopen" == "" ] && should_reopen="$file_path" || should_reopen=$should_reopen" $file_path"
+			added=true
+		fi
+		echo "Adding export $p to $file_path."; echo 'export '$p >> "$file_path"
+	done
 }
 
-[ -e "$HOME/.bashrc" ] && update_rc "$HOME/.bashrc"
+paths=( 'PATH="'$linuxbrew_path'/bin:$PATH"' 'MANPATH="'$linuxbrew_path'/share/man:$MANPATH"' 'INFOPATH="'$linuxbrew_path'/share/info:$INFOPATH"' )
 
-[ -e "$HOME/.zshrc" ] && update_rc "$HOME/.zshrc"
+[ -e "$HOME/.bashrc" ] && update_rc "$HOME/.bashrc" "${paths[@]}"
+[ -e "$HOME/.zshrc" ] && update_rc "$HOME/.zshrc" "${paths[@]}"
 
-for var in "$@"
-do
-	[ -e "$var" ] && update_rc "$var"
+for var in "$@"; do
+	[ -e "$var" ] && update_rc "$var" "${paths[@]}"
 done
 
 if [ "$should_reopen" != "" ]; then

@@ -1,4 +1,6 @@
 #Add Java into PATH and MANPATH
+#Author: Toberumono (https://github.com/Toberumono)
+
 jvm_path="$HOME/jvm"
 jvm_current_path='$HOME/jvm/current'
 
