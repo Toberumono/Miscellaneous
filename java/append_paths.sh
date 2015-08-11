@@ -25,7 +25,7 @@ update_rc() {
 	done
 }
 
-paths=( 'PATH="$jvm_current_path/bin:$PATH"' 'MANPATH="$jvm_current_path/man:$MANPATH"' )
+paths=( 'PATH="'$jvm_current_path'/bin:$PATH"' 'MANPATH="'$jvm_current_path'/man:$MANPATH"' )
 
 [ -e "$HOME/.bashrc" ] && update_rc "$HOME/.bashrc" "${paths[@]}"
 [ -e "$HOME/.zshrc" ] && update_rc "$HOME/.zshrc" "${paths[@]}"
