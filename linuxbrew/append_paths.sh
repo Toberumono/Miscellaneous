@@ -2,40 +2,22 @@
 #Author: Toberumono (https://github.com/Toberumono)
 
 linuxbrew_path='$HOME/.linuxbrew'
+path_path='PATH="'$linuxbrew_path'/bin:$PATH"'
+man_path='MANPATH="'$linuxbrew_path'/share/man:$MANPATH"'
+info_path='INFOPATH="'$linuxbrew_path'/share/info:$INFOPATH"'
 
-client="Linuxbrew"
-should_reopen=""
+#Download the update_rc.sh script from my repo and run its contents within the current shell via an anonymous file descriptor.
+. <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
 
-update_rc() {
-	added=false
-	file_path="${1}"
-	shift
-	for p in $@; do
-		add_path=$(grep -F -e 'export '$p "$file_path")
-		if [ "$add_path" != "" ]; then
-			echo 'export '$p" is already in $file_path."
-			continue;
-		fi
-		if ( ! $added ); then
-			echo "" >> "$file_path"
-			echo "# This adds the necessary $client paths." >> "$file_path"
-			[ "$should_reopen" == "" ] && should_reopen="$file_path" || should_reopen=$should_reopen" $file_path"
-			added=true
-		fi
-		echo "Adding export $p to $file_path."; echo 'export '$p >> "$file_path"
-	done
-}
-
-paths=( 'PATH="'$linuxbrew_path'/bin:$PATH"' 'MANPATH="'$linuxbrew_path'/share/man:$MANPATH"' 'INFOPATH="'$linuxbrew_path'/share/info:$INFOPATH"' )
-
-[ -e "$HOME/.bashrc" ] && update_rc "$HOME/.bashrc" "${paths[@]}"
-[ -e "$HOME/.zshrc" ] && update_rc "$HOME/.zshrc" "${paths[@]}"
+[ -e "$HOME/.bashrc" ] && update_rc "Linuxbrew" "$HOME/.bashrc" $path_path $man_path $info_path
+[ -e "$HOME/.zshrc" ] && update_rc "Linuxbrew" "$HOME/.zshrc" $path_path $man_path $info_path
 
 for var in "$@"; do
-	[ -e "$var" ] && update_rc "$var" "${paths[@]}"
+	[ -e "$var" ] && update_rc "$var" $path_path $man_path $info_path
 done
 
+#The should_reopen variable is added by the update_rc.sh script.
 if [ "$should_reopen" != "" ]; then
 	echo "Modified: $should_reopen"
-	echo "Please restart your terminal session for these changes to take effect (open a new window and close this one once you are done with the information in it)."
+	echo "Please start a new terminal session for these changes to take effect."
 fi
