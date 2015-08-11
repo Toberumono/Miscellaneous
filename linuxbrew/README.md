@@ -3,6 +3,7 @@ All of the files in this directory relate to [Linuxbrew](https://github.com/Home
 
 ## <a name="htulsi"></a>How to use `sudoless_install.sh`
 **This is a Linux-only script.**
+
 Run the following command in terminal (make sure you copy and paste all of it):
 ```bash
 bash <(wget -qO - https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/linuxbrew/sudoless_install.sh)
@@ -25,6 +26,7 @@ The script (`linuxbrew/sudoless_install.sh`) itself does the following:
 
 ## <a name="htulap"></a>How to Use `append_paths.sh`
 **This is a Linux-only script.**
+
 Run the following command in terminal (make sure you copy and paste all of it):
 ```bash
 bash <(wget -qO - https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/linuxbrew/append_paths.sh)
