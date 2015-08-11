@@ -1,7 +1,6 @@
 # Miscellaneous
 A collection of potentially useful scripts and support files that don't fit into my other projects.
 
-## <a name="general"></a>General
 A few quick notes:
 
 * The commands given to execute the scripts use `wget` to pipe the script into a anonymous file descriptor (temporary "file").  This eliminates the need for external cleanup because the shell automatically handles it.
