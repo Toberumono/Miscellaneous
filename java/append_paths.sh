@@ -7,19 +7,21 @@ should_reopen=""
 
 update_rc() {
 	added=false
-	for p in ${2[@]}; do
-		add_path=$(grep -F -e 'export '$p "$1")
+	file_path="${1}"
+	shift
+	for p in "$@"; do
+		add_path=$(grep -F -e 'export '$p "$file_path")
 		if ( ! $add_path); then
-			echo 'export '$p" is already in $1"
+			echo 'export '$p" is already in $file_path"
 			continue;
 		fi
 		if ( ! $added ); then
-			echo "" >> "$1"
-			echo "# This adds the necessary $client paths." >> "$1"
-			[ "$should_reopen" == "" ] && should_reopen="$1" || should_reopen=$should_reopen" $1"
+			echo "" >> "$file_path"
+			echo "# This adds the necessary $client paths." >> "$file_path"
+			[ "$should_reopen" == "" ] && should_reopen="$file_path" || should_reopen=$should_reopen" $file_path"
 			added=true
 		fi
-		echo "Adding 'export '$p to $1"; echo 'export '$p >> "$1"
+		echo "Adding 'export '$p to $file_path"; echo 'export '$p >> "$file_path"
 	done
 }
 
@@ -28,11 +30,11 @@ ln -sfr "$jdk_path" "$jvm_path/current"
 
 paths=( 'PATH="'$jvm_current_path'/bin:$PATH"' 'MANPATH="'$jvm_current_path'/man:$MANPATH"' )
 
-[ -e "$HOME/.bashrc" ] && update_rc "$HOME/.bashrc" $paths[@]
-[ -e "$HOME/.zshrc" ] && update_rc "$HOME/.zshrc" $paths[@]
+[ -e "$HOME/.bashrc" ] && update_rc "$HOME/.bashrc" "${paths[@]}"
+[ -e "$HOME/.zshrc" ] && update_rc "$HOME/.zshrc" "${paths[@]}"
 
 for var in "$@"; do
-	[ -e "$var" ] && update_rc "$var" $paths[@]
+	[ -e "$var" ] && update_rc "$var" "${paths[@]}"
 done
 
 if [ "$should_reopen" != "" ]; then
