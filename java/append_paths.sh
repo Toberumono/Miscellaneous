@@ -25,9 +25,6 @@ update_rc() {
 	done
 }
 
-jdk_path="$(ls $jvm_path/jdk* -t -1 | head -1)"
-ln -sf "$jdk_path" "$jvm_path/current"
-
 paths=( 'PATH="'$jvm_current_path'/bin:$PATH"' 'MANPATH="'$jvm_current_path'/man:$MANPATH"' )
 
 [ -e "$HOME/.bashrc" ] && update_rc "$HOME/.bashrc" "${paths[@]}"
