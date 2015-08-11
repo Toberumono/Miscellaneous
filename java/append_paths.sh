@@ -1,6 +1,6 @@
 #Add Java into PATH and MANPATH
-jvm_path='$HOME/jvm'
-jvm_current_path=$jvm_path"/current"
+jvm_path="$HOME/jvm"
+jvm_current_path='$HOME/jvm/current'
 
 client="JDK"
 should_reopen=""
@@ -24,7 +24,7 @@ update_rc() {
 }
 
 jdk_path="$(ls $jvm_path/jdk* -t -1 | head -1)"
-ln -sfr "$jdk_path" "$jvm_current_path"
+ln -sfr "$jdk_path" "$jvm_path/current"
 
 paths=( 'PATH="'$jvm_current_path'/bin:$PATH"' 'MANPATH="'$jvm_current_path'/man:$MANPATH"' )
 
