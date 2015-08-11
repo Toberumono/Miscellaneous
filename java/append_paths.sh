@@ -7,7 +7,7 @@ should_reopen=""
 
 update_rc() {
 	added=false
-	for p in $2; do
+	for p in ${2[@]}; do
 		add_path=$(grep -F -e 'export '$p "$1")
 		if ( ! $add_path); then
 			echo 'export '$p" is already in $1"
