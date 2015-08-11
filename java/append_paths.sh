@@ -8,8 +8,8 @@ jvm_current_path='$HOME/jvm/current'
 
 paths=( 'PATH="'$jvm_current_path'/bin:$PATH"' 'MANPATH="'$jvm_current_path'/man:$MANPATH"' )
 
-[ -e "$HOME/.bashrc" ] && update_rc "$HOME/.bashrc" "${paths[@]}"
-[ -e "$HOME/.zshrc" ] && update_rc "$HOME/.zshrc" "${paths[@]}"
+[ -e "$HOME/.bashrc" ] && update_rc "JDK" "$HOME/.bashrc" "${paths[@]}"
+[ -e "$HOME/.zshrc" ] && update_rc "JDK" "$HOME/.zshrc" "${paths[@]}"
 
 for var in "$@"; do
 	[ -e "$var" ] && update_rc "$var" "${paths[@]}"
