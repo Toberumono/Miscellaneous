@@ -1,7 +1,5 @@
 #This script requires sudo privileges
 
-echo "test!"
-
 if [ "$(which brew)" != "" ]; then
 	echo "Linuxbrew is already installed."
 	exit 0
@@ -16,4 +14,5 @@ else
 fi
 
 . <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/unsudo.sh")
+echo $unsudo
 (wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/linuxbrew/sudoless_install.sh") | $unsudo bash
