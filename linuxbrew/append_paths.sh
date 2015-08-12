@@ -9,8 +9,12 @@ info_path='INFOPATH="'$linuxbrew_path'/share/info:$INFOPATH"'
 #Download the update_rc.sh script from my repo and run its contents within the current shell via an anonymous file descriptor.
 . <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
 
-update_rc "Linuxbrew" "$HOME/.bashrc" $path_path $man_path $info_path
-update_rc "Linuxbrew" "$HOME/.zshrc" $path_path $man_path $info_path
+shell=ps -o comm= -p $$ | sed -e "s/-\{0,1\}\(.*\)/\1/"
+if [ "$(uname -s)" == "Darwin" ]; then
+	update_rc "Homebrew" "$HOME/.${shell}_profile" $path_path $man_path $info_path
+else
+	update_rc "Linuxbrew" "$HOME/.${shell}rc" $path_path $man_path $info_path
+fi
 
 for var in "$@"; do
 	update_rc "$var" $path_path $man_path $info_path
