@@ -10,11 +10,7 @@ info_path='INFOPATH="'$linuxbrew_path'/share/info:$INFOPATH"'
 . <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
 
 shell="$(ps -o comm= -p $$ | sed -e 's/-\{0,1\}\(.*\)/\1/')"
-if [ "$(uname -s)" == "Darwin" ]; then
-	update_rc "Homebrew" "$HOME/.${shell}_profile" $path_path $man_path $info_path
-else
-	update_rc "Linuxbrew" "$HOME/.${shell}rc" $path_path $man_path $info_path
-fi
+update_rc "Linuxbrew" "$HOME/.${shell}rc" $path_path $man_path $info_path
 
 for var in "$@"; do
 	update_rc "$var" $path_path $man_path $info_path

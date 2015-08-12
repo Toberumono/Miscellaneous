@@ -10,8 +10,12 @@ jvm_current_path='$HOME/jvm/current'
 path_path='PATH="'$jvm_current_path'/bin:$PATH"'
 man_path'MANPATH="'$jvm_current_path'/man:$MANPATH"'
 
-[ -e "$HOME/.bashrc" ] && update_rc "JDK" "$HOME/.bashrc" $path_path $man_path
-[ -e "$HOME/.zshrc" ] && update_rc "JDK" "$HOME/.zshrc" $path_path $man_path
+shell="$(ps -o comm= -p $$ | sed -e 's/-\{0,1\}\(.*\)/\1/')"
+if [ "$(uname -s)" == "Darwin" ]; then
+	update_rc "JDK" "$HOME/.${shell}_profile" $path_path $man_path
+else
+	update_rc "JDK" "$HOME/.${shell}rc" $path_path $man_path
+fi
 
 for var in "$@"; do
 	[ -e "$var" ] && update_rc "JDK" "$var" $path_path $man_path
