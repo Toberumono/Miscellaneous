@@ -9,11 +9,11 @@ info_path='INFOPATH="'$linuxbrew_path'/share/info:$INFOPATH"'
 #Download the update_rc.sh script from my repo and run its contents within the current shell via an anonymous file descriptor.
 . <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
 
-[ -e "$HOME/.bashrc" ] && update_rc "Linuxbrew" "$HOME/.bashrc" $path_path $man_path $info_path
-[ -e "$HOME/.zshrc" ] && update_rc "Linuxbrew" "$HOME/.zshrc" $path_path $man_path $info_path
+update_rc "Linuxbrew" "$HOME/.bashrc" $path_path $man_path $info_path
+update_rc "Linuxbrew" "$HOME/.zshrc" $path_path $man_path $info_path
 
 for var in "$@"; do
-	[ -e "$var" ] && update_rc "$var" $path_path $man_path $info_path
+	update_rc "$var" $path_path $man_path $info_path
 done
 
 #The should_reopen variable is added by the update_rc.sh script.
