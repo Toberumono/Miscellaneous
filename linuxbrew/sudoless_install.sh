@@ -1,6 +1,11 @@
 #Installs Linuxbrew without using sudo (if possible)
 #Author: Toberumono (https://github.com/Toberumono)
 
+if [ "$(which brew)" != "" ]; then
+	echo "Linuxbrew is already installed."
+	exit 0
+fi
+
 #As a bare minimum, we need ruby, git, and curl.
 need=""
 if [ "$(which ruby)" == "" ]; then
@@ -25,10 +30,10 @@ fi
 if [ "$need" != "" ]; then
 	echo "Unable to install Linuxbrew without $need."
 	echo "Please ask your system administrator to install $need before continuing."
-	kill -INT $$
+	exit 1
 fi
 
-if [ ! -e "$HOME/.linuxbrew" ]; then
+if [ "$(which brew)" == "" ]; then
 	if [ "$(which curl)" != "" ]; then
 		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 	else
