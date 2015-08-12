@@ -51,5 +51,3 @@ brew tap homebrew/dupes
 [ "$(which texinfo)" == "" ] && brew install texinfo
 [ "$(which expat)" == "" ] && brew install expat
 [ "$(which ncurses)" == "" ] && brew install ncurses
-[ "$(which gcc)" == "" ] && brew install "gcc"
-[ "$(which gfortran)" == "" ] && brew install "gcc" #For ease of use with WRF.
