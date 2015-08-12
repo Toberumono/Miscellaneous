@@ -1,13 +1,14 @@
 #A support function used to append export commands to .bashrc, .zshrc, etc.
 #Author: Toberumono (https://github.com/Toberumono)
 
+should_reopen=""
+
 update_rc() {
 	client="$1"
 	shift
 	file_path="$1"
 	shift
 
-	should_reopen=""
 	added=false
 
 	for p in "$@"; do
