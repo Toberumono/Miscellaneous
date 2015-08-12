@@ -1,7 +1,7 @@
 #Add Linuxbrew into PATH, MANPATH, and INFOPATH
 #Author: Toberumono (https://github.com/Toberumono)
 
-linuxbrew_path='$HOME/.linuxbrew'
+[ "$(which brew)" != "" ] && linuxbrew_path="$(brew --prefix)" || linuxbrew_path='$HOME/.linuxbrew'
 path_path='PATH="'$linuxbrew_path'/bin:$PATH"'
 man_path='MANPATH="'$linuxbrew_path'/share/man:$MANPATH"'
 info_path='INFOPATH="'$linuxbrew_path'/share/info:$INFOPATH"'
