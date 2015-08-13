@@ -6,9 +6,10 @@ brew install gcc
 . <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/get_profile.sh")
 
 gfortran_version="$(gfortran -dumpversion | cut -d. -f1)"
-[ "$gfortran_version" -lt "5" ] && gfortran_version="$(gfortran -dumpversion | cut -d. -f1,2)"
+if [ "$gfortran_version" -lt "5" ]; then
+	gfortran_version="$(gfortran -dumpversion | cut -d. -f1,2)"
+fi
 ln -sf "$(which gcc-$gfortran_version)" "$(brew --prefix)/bin/gcc"
-ln -sf "$(which gfortran-$gfortran_version)" "$(brew --prefix)/bin/gfortran"
 ln -sf "$(which g++-$gfortran_version)" "$(brew --prefix)/bin/g++"
 update_rc "Brewed gcc" "$profile" "HOMEBREW_CC=gcc-$gfortran_version" "HOMEBREW_FC=gfortran-$gfortran_version" "CC=$(which gcc)" "FC=$(which gfortran)"
 
