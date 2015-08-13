@@ -18,6 +18,9 @@ for var in "$@"; do
 done
 
 #The should_reopen variable is added by the update_rc.sh script.
+if [ "$should_reopen" == "$profile"]; then
+	source "$profile"
+fi
 if [ "$should_reopen" != "" ]; then
 	echo "Modified: $should_reopen"
 	echo "Please start a new terminal session or run 'source $profile' for these changes to take effect."
