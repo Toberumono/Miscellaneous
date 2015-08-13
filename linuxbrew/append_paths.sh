@@ -1,10 +1,10 @@
 #Add Linuxbrew into PATH, MANPATH, and INFOPATH
 #Author: Toberumono (https://github.com/Toberumono)
 
-[ "$(which brew)" != "" ] && linuxbrew_path="$(brew --prefix)" || linuxbrew_path='$HOME/.linuxbrew'
-path_path='PATH="'$linuxbrew_path'/bin:$PATH"'
-man_path='MANPATH="'$linuxbrew_path'/share/man:$MANPATH"'
-info_path='INFOPATH="'$linuxbrew_path'/share/info:$INFOPATH"'
+[ "$(which brew)" != "" ] && brewery_path="$(brew --prefix)" || brewery_path='$HOME/.linuxbrew'
+path_path='PATH="'$brewery_path'/bin:$PATH"'
+man_path='MANPATH="'$brewery_path'/share/man:$MANPATH"'
+info_path='INFOPATH="'$brewery_path'/share/info:$INFOPATH"'
 
 #Download the update_rc.sh script from my repo and run its contents within the current shell via an anonymous file descriptor.
 . <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
