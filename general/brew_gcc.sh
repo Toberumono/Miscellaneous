@@ -1,8 +1,7 @@
 #Brews gcc and sets the relevant environment variables in the profile file.
 #Author: Toberumono (https://github.com/Toberumono)
 
-brew tap homebrew/versions
-brew install gcc5
+brew install gcc
 . <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
 . <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/get_profile.sh")
 
