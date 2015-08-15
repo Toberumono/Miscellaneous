@@ -2,7 +2,8 @@
 #Author: Toberumono (https://github.com/Toberumono)
 
 ncl_tar="$(ls $(pwd)/ncl_ncarg* -t -1 | head -1)"
-ncl_path="$HOME/.ncl-ncarg/${$(basname $ncl_tar)%%.*}"
+ncl_tar_name="$(basname $ncl_tar)"
+ncl_path="$HOME/.ncl-ncarg/${$ncl_tar_name%%.*}"
 
 mkdir -p "$ncl_path"
 read -n1 -p "Installing NCL-NCARG in $ncl_path using $ncl_tar.  Proceed? [Press Enter to continue, press any other key to quit]" yn
