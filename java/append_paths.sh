@@ -1,11 +1,11 @@
 #Add Java into PATH and MANPATH
 #Author: Toberumono (https://github.com/Toberumono)
 
-jvm_path="$HOME/jvm"
-jvm_current_path='$HOME/jvm/current'
+jvm_path="$HOME/.jvm"
+jvm_current_path="$jvm_path/current"
 
-path_path='PATH="'$jvm_current_path'/bin:$PATH"'
-man_path='MANPATH="'$jvm_current_path'/man:$MANPATH"'
+path_path='PATH="$jvm_current_path/bin:$PATH"'
+man_path='MANPATH="$jvm_current_path/man:$MANPATH"'
 
 #Download the update_rc.sh script from my repo and run its contents within the current shell via an anonymous file descriptor.
 . <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
