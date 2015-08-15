@@ -1,6 +1,9 @@
 #Install the most recent version of NCL-NCARG without sudo
 #Author: Toberumono (https://github.com/Toberumono)
 
+#Get the command to use when grabbing subscripts from GitHub.
+[ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
+
 ncl_tar="$(ls $(pwd)/ncl_ncarg* -t -1 | head -1)"
 ncl_path="$HOME/.ncl-ncarg"
 ncl_installed_path="$ncl_path/$(echo $ncl_tar | grep -oE 'ncl_ncarg-([0-9]+\.)*[0-9]+')"
@@ -14,4 +17,4 @@ fi
 tar -zxvf "$ncl_tar" -C "$ncl_path"
 
 ln -sf "$ncl_installed_path" "$ncl_path/current"
-bash <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/append_paths.sh")
+bash <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/append_paths.sh")

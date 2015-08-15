@@ -1,15 +1,18 @@
 #Add Java into PATH and MANPATH
 #Author: Toberumono (https://github.com/Toberumono)
 
+#Get the command to use when grabbing subscripts from GitHub.
+[ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
+
+#Download the update_rc.sh and get_profile.sh scripts from my repo and run their contents within the current shell via an anonymous file descriptor.
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/get_profile.sh")
+
 jvm_path="$HOME/.jvm"
 jvm_current_path="$jvm_path/current"
 
 path_path='PATH="'"$jvm_current_path"'/bin:$PATH"'
 man_path='MANPATH="'"$jvm_current_path"'/man:$MANPATH"'
-
-#Download the update_rc.sh script from my repo and run its contents within the current shell via an anonymous file descriptor.
-. <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
-. <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/get_profile.sh")
 
 update_rc "JDK" "$profile" $path_path $man_path
 

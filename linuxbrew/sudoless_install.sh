@@ -1,6 +1,9 @@
 #Installs Linuxbrew without using sudo (if possible)
 #Author: Toberumono (https://github.com/Toberumono)
 
+#Get the command to use when grabbing subscripts from GitHub.
+[ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
+
 if [ "$(which brew)" != "" ]; then
 	echo "Linuxbrew is already installed."
 	exit 0
@@ -40,7 +43,7 @@ if [ "$(which brew)" == "" ]; then
 		git clone "https://github.com/Homebrew/linuxbrew.git" "$HOME/.linuxbrew"
 	fi
 fi
-bash <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/linuxbrew/append_paths.sh")
+bash <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/linuxbrew/append_paths.sh")
 export PATH=$HOME/.linuxbrew/bin:$PATH
 brew tap homebrew/dupes
 

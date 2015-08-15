@@ -1,6 +1,9 @@
 #Install the most recent JDK without sudo
 #Author: Toberumono (https://github.com/Toberumono)
 
+#Get the command to use when grabbing subscripts from GitHub.
+[ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
+
 jvm_path="$HOME/.jvm"
 
 mkdir -p "$jvm_path"
@@ -14,4 +17,4 @@ tar -zxvf "$jdk_tar" -C "$jvm_path"
 
 jdk_path="$(ls -d $jvm_path/jdk* -t -1 | head -1)"
 ln -sf "$jdk_path" "$jvm_path/current"
-bash <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/java/append_paths.sh")
+bash <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/java/append_paths.sh")
