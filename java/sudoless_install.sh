@@ -1,7 +1,7 @@
 #Install the most recent JDK without sudo
 #Author: Toberumono (https://github.com/Toberumono)
 
-jvm_path="$HOME/jvm"
+jvm_path="$HOME/.jvm"
 
 mkdir -p "$jvm_path"
 jdk_tar="$(ls $(pwd)/jdk* -t -1 | head -1)"
