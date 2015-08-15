@@ -7,6 +7,7 @@ mkdir -p "$jvm_path"
 jdk_tar="$(ls $(pwd)/jdk* -t -1 | head -1)"
 read -n1 -p "Installing the JDK in $jvm_path using $jdk_tar.  Proceed? [Press Enter to continue, press any other key to quit]" yn
 if [ "$yn" != "" ]; then
+	echo "" #Echo a newline for neatness' sake
 	exit 1
 fi
 tar -zxvf "$jdk_tar" -C "$jvm_path"
