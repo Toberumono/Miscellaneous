@@ -12,6 +12,6 @@ if [ "$yn" != "" ]; then
 fi
 tar -zxvf "$ant_tar" -C "$ant_path"
 
-ant_path="$(ls -d $ant_path/apache-ant* -t -1 | head -1)"
-ln -sf "$ant_path" "$ant_path/current"
+ant_installed_path="$(ls -d $ant_path/apache-ant* -t -1 | head -1)"
+ln -sf "$ant_installed_path" "$ant_path/current"
 bash <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ant/append_paths.sh")
