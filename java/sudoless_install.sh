@@ -5,7 +5,7 @@ jvm_path="$HOME/.jvm"
 
 mkdir -p "$jvm_path"
 jdk_tar="$(ls $(pwd)/jdk* -t -1 | head -1)"
-read -n1 -p "Installing the JDK in $jvm_path.  Proceed? [Press Enter to continue, press any other key to quit]" yn
+read -n1 -p "Installing the JDK in $jvm_path using $jdk_tar.  Proceed? [Press Enter to continue, press any other key to quit]" yn
 if [ "$yn" != "" ]; then
 	exit 1
 fi
