@@ -15,10 +15,10 @@ if [ "$gfortran_version" -lt "5" ]; then
 fi
 ln -sf "$(which gcc-$gfortran_version)" "$(brew --prefix)/bin/gcc"
 ln -sf "$(which g++-$gfortran_version)" "$(brew --prefix)/bin/g++"
-update_rc "Brewed gcc" "$profile" "HOMEBREW_CC=gcc-$gfortran_version" "HOMEBREW_FC=gfortran-$gfortran_version" "CC=$(which gcc)" "CXX=$(which g++)" "FC=$(which gfortran)"
+update_rc "Brewed gcc" "$profile" "CC=$(which gcc)" "CXX=$(which g++)" "FC=$(which gfortran)"
 
 for var in "$@"; do
-	update_rc "Brewed gcc" "$var" "HOMEBREW_CC=gcc-$gfortran_version" "HOMEBREW_FC=gfortran-$gfortran_version" "CC=$(which gcc)" "CXX=$(which g++)" "FC=$(which gfortran)"
+	update_rc "Brewed gcc" "$var" "CC=$(which gcc)" "CXX=$(which g++)" "FC=$(which gfortran)"
 done
 
 #The should_reopen variable is added by the update_rc.sh script.
