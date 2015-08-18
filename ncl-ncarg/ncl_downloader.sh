@@ -25,7 +25,7 @@ fi
 pairs=()
 while read -r line; do
 	pairs+=($(echo $line | sed 's/['\'',]//g'))
-done <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/current_ncl-ncarg_versions.csv")
+done < <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/current_ncl-ncarg_versions.csv")
 
 options=()
 paths=()
