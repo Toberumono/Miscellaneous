@@ -84,4 +84,4 @@ fi
 
 echo "Using: $ncl_tarball"
 
-wget -O "$(pwd)$ncl_tarball" "$path"
+wget -O "$(pwd)/$ncl_tarball" "$path"
