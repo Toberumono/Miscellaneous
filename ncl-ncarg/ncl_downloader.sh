@@ -4,6 +4,7 @@
 #Author: Toberumono (https://github.com/Toberumono)
 [ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
 
+os_ver=""
 if [ "$(uname -s)" == "Darwin" ]; then #We are running on a Mac
 	os_ver="MacOS_$(sw_vers -productVersion | grep -o -E '^[0-9]+\.[0-9]+')"
 elif [ "$(uname -o)" == "GNU/Linux" ]; then #We are running on a Linux box
@@ -51,6 +52,7 @@ while [ "$i" -lt "${#pairs[@]}" ]; do
 	(( i = j + 1 ))
 done
 
+#If we were unable to perform any detection.
 if [ "${#options[@]}" -eq "0" ]; then
 	i="0"
 	while [ "$i" -lt "${#pairs[@]}" ]; do
