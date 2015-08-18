@@ -5,6 +5,6 @@
 #Get the command to use when grabbing subscripts from GitHub.
 [ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
 
-bash <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/ncl_downloader.sh")
-bash <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/sudoless_install.sh")
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/ncl_downloader.sh")
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/sudoless_install.sh")
 rm "$(pwd)$ncl_tarball" #Cleanup
