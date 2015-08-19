@@ -1,6 +1,21 @@
 # <a name="ncl"></a>NCL-NCARG
 All of the files in this directory relate to [NCL-NCARG](https://www.ncl.ucar.edu/index.shtml), and generally automate a part of its installation.
 
+## <a name="htunai"></a>How to use `automatic_install.sh`
+**This script does not require sudo**
+
+Run the following command in terminal (make sure you copy and paste all of it - this scrolls):
+```bash
+bash <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/automatic_install.sh")
+```
+The command downloads the `ncl-ncarg/automatic_install.sh` script from this repository, pipes it into bash, and executes it.  Additionally, the command automatically cleans up the temporary "file" after it is done.
+The script (`ncl-ncarg/automatic_install.sh`) itself does the following:
+
+1. Forwards to `ncl-ncarg/ncl_downloader.sh` to automatically determine the correct version of [NCL-NCARG](https://www.ncl.ucar.edu/index.shtml) and download it.
+2. Forwards to `ncl-ncarg/sudoless_install.sh` to automatically install and link it.
+3. Cleans up the temporary files (the .tar.gz file)
+4. Done.  Just restart terminal to finish the linking process.
+
 ## <a name="htunnsi"></a>How to use `sudoless_install.sh`
 **This is a Linux-only script.**
 
