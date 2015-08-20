@@ -14,7 +14,7 @@ if [ "$yn" != "" ]; then
 	echo "" #Echo a newline for neatness' sake
 	exit 1
 fi
-tar -zxvf "$ncl_tar" -C "$ncl_path"
+tar -zxvf "$ncl_tar" -C "$ncl_installed_path"
 
 ln -sf "$ncl_installed_path" "$ncl_path/current"
 bash <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/append_paths.sh")
