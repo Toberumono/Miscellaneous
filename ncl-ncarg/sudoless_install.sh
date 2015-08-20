@@ -4,7 +4,7 @@
 #Get the command to use when grabbing subscripts from GitHub.
 [ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
 
-ncl_tar="$(ls $(pwd)/ncl_ncarg* -t -1 | head -1)"
+ncl_tar="$(ls -t1 $(pwd)/ncl_ncarg* | head -1)"
 ncl_path="$HOME/.ncl-ncarg"
 ncl_installed_path="$ncl_path/$(echo $ncl_tar | grep -oE 'ncl_ncarg-([0-9]+\.)*[0-9]+')"
 
