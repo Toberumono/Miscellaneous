@@ -18,3 +18,14 @@ tar -zxvf "$ncl_tar" -C "$ncl_installed_path"
 
 ln -sf "$ncl_installed_path" "$ncl_path/current"
 bash <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/append_paths.sh")
+
+echo "Now testing your new NCL-NCARG installation."
+if [ "$(ncargex cpex08 -clean | grep -F -e 'dyld: Library not loaded')" != "" ]; then
+	echo "Attempting to repair your paths."
+	bash <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/brew_path_fix.sh")
+	. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/get_profile.sh")
+	source $profile
+	if [ "$(ncargex cpex08 -clean | grep -F -e 'dyld: Library not loaded')" != "" ]; then
+		echo "Repairs failed.  Unable to successfully link all libraries.  Please see the NCL website for further help."
+	fi
+fi
