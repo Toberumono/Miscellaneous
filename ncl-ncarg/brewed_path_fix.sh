@@ -12,6 +12,7 @@
 #This also has the advantage of automatically picking the library from whichever build of gfortran is currently in use.
 fallback_path='DYLD_FALLBACK_LIBRARY_PATH="$(echo $(echo $(echo $(which gfortran | sed "s/\/[^\/]*$/\//")$(readlink $(which gfortran)) | sed "s/\/[^\/]*$/\//")../lib/gcc/$(readlink $(which gfortran | sed "s/\/[^\/]*$/\//")$(readlink $(which gfortran)) | grep -oE '\''([0-9]+\.)*[0-9]+$'\'')) | sed '\''s/\([^\/]*\)\/\.\.\///g'\''):$DYLD_FALLBACK_LIBRARY_PATH"'
 
+ncl_current="$(brew --prefix)/ncl-current"
 update_rc "Brewed NCAR-NCL" "$profile" "NCARG_ROOT=$ncl_current" 'PATH="'"$ncl_current"'/bin:$PATH"' "$fallback_path"
 
 for var in "$@"; do
