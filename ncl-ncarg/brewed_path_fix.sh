@@ -13,10 +13,10 @@
 fallback_path='DYLD_FALLBACK_LIBRARY_PATH="$(echo $(echo $(echo $(which gfortran | sed "s/\/[^\/]*$/\//")$(readlink $(which gfortran)) | sed "s/\/[^\/]*$/\//")../lib/gcc/$(readlink $(which gfortran | sed "s/\/[^\/]*$/\//")$(readlink $(which gfortran)) | grep -oE '\''([0-9]+\.)*[0-9]+$'\'')) | sed '\''s/\([^\/]*\)\/\.\.\///g'\''):$DYLD_FALLBACK_LIBRARY_PATH"'
 
 ncl_current="$(brew --prefix)/ncl-current"
-update_rc "Brewed NCAR-NCL" "$profile" "NCARG_ROOT=$ncl_current" 'PATH="'"$ncl_current"'/bin:$PATH"' "$fallback_path"
+update_rc "Brewed NCAR-NCL" "$profile" "NCARG_ROOT=$ncl_current" 'PATH="$NCARG_ROOT/bin:$PATH"' "$fallback_path"
 
 for var in "$@"; do
-	update_rc "Brewed NCAR-NCL" "$profile" "NCARG_ROOT=$ncl_current" 'PATH="'"$ncl_current"'/bin:$PATH"' "$fallback_path"
+	update_rc "Brewed NCAR-NCL" "$profile" "NCARG_ROOT=$ncl_current" 'PATH="$NCARG_ROOT/bin:$PATH"' "$fallback_path"
 done
 
 #The should_reopen variable is added by the update_rc.sh script.
