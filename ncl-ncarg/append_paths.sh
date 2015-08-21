@@ -11,22 +11,27 @@
 ncl_path="$HOME/.ncl-ncarg"
 ncl_current_path="$ncl_path/current"
 
+root_path="NCARG_ROOT=$ncl_current_path"
 path_path='PATH="$NCARG_ROOT/bin:$PATH"'
 #Okay, this line is /really/ long.  Basically, on Darwin systems (OSX), this gets the path to the libgfortran.3.dylib's containing folder.  This should /not/ be called on Linux systems.
 #This basically takes advantage of a pattern in how the gfortran executable is linked by Homebrew.  It should work with other installations, and, even if it doesn't, it won't break them.
 fallback_path='DYLD_FALLBACK_LIBRARY_PATH="$(echo $(echo $(echo $(which gfortran | sed "s/\/[^\/]*$/\//")$(readlink $(which gfortran)) | sed "s/\/[^\/]*$/\//")../lib/gcc/$(readlink $(which gfortran | sed "s/\/[^\/]*$/\//")$(readlink $(which gfortran)) | grep -oE '\''([0-9]+\.)*[0-9]+$'\'')) | sed '\''s/\([^\/]*\)\/\.\.\///g'\''):$DYLD_FALLBACK_LIBRARY_PATH"'
 
+export "$root_path"
+export "$path_path"
+
 if [ "$(uname -s)" == "Darwin" ]; then
-	update_rc "NCL-NCARG" "$profile" "NCARG_ROOT=$ncl_current_path" "$path_path" "$fallback_path"
+	export "$fallback_path"
+	update_rc "NCL-NCARG" "$profile" "$root_path" "$path_path" "$fallback_path"
 
 	for var in "$@"; do
-		update_rc "NCL-NCARG" "$var" "NCARG_ROOT=$ncl_current_path" "$path_path" "$fallback_path"
+		update_rc "NCL-NCARG" "$var" "$root_path" "$path_path" "$fallback_path"
 	done
 else
-	update_rc "NCL-NCARG" "$profile" "NCARG_ROOT=$ncl_current_path" "$path_path"
+	update_rc "NCL-NCARG" "$profile" "$root_path" "$path_path"
 
 	for var in "$@"; do
-		update_rc "NCL-NCARG" "$var" "NCARG_ROOT=$ncl_current_path" "$path_path"
+		update_rc "NCL-NCARG" "$var" "$root_path" "$path_path"
 	done
 fi
 
