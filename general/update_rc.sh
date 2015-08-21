@@ -12,9 +12,9 @@ update_rc() {
 	added=false
 
 	for p in "$@"; do
-		add_path=$(grep -F -e 'export '$p "$file_path")
+		add_path=$(grep -F -e 'export '"$p" "$file_path")
 		if [ "$add_path" != "" ]; then
-			echo 'export '$p" is already in $file_path."
+			echo 'export '"$p"" is already in $file_path."
 			continue;
 		fi
 		if ( ! $added ); then
@@ -23,6 +23,6 @@ update_rc() {
 			[ "$should_reopen" == "" ] && should_reopen="$file_path" || should_reopen=$should_reopen" $file_path"
 			added=true
 		fi
-		echo "Adding export $p to $file_path."; echo 'export '$p >> "$file_path"
+		echo "Adding export $p to $file_path."; echo 'export '"$p" >> "$file_path"
 	done
 }
