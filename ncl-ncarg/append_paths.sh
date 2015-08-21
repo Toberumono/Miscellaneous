@@ -11,12 +11,14 @@
 ncl_path="$HOME/.ncl-ncarg"
 ncl_current_path="$ncl_path/current"
 
-path_path='PATH="'"$ncl_current_path"'/bin:$PATH"'
+path_path='PATH="$NCARG_ROOT/bin:$PATH"'
+#Okay, this line is /really/ long.  Basically, on Darwin systems (OSX), this gets the path to the libgfortran.3.dylib's containing folder.  This should /not/ be called on Linux systems.
+fallback_path='DYLD_FALLBACK_LIBRARY_PATH="$(echo $(echo $(echo $(which gfortran | sed "s/\/[^\/]*$/\//")$(readlink $(which gfortran)) | sed "s/\/[^\/]*$/\//")../lib/gcc/$(readlink $(which gfortran | sed "s/\/[^\/]*$/\//")$(readlink $(which gfortran)) | grep -oE '\''([0-9]+\.)*[0-9]+$'\'')) | sed '\''s/\([^\/]*\)\/\.\.\///g'\''):$DYLD_FALLBACK_LIBRARY_PATH"'
 
-update_rc "NCL-NCARG" "$profile" $path_path "NCARG_ROOT=$ncl_current_path"
+update_rc "NCL-NCARG" "$profile" "NCARG_ROOT=$ncl_current_path" "$path_path" "$fallback_path"
 
 for var in "$@"; do
-	update_rc "NCL-NCARG" "$var" $path_path "NCARG_ROOT=$ncl_current_path"
+	update_rc "NCL-NCARG" "$var" "NCARG_ROOT=$ncl_current_path" "$path_path" "$fallback_path"
 done
 
 #The should_reopen variable is added by the update_rc.sh script.
