@@ -28,5 +28,9 @@ if [ "$(ncargex cpex08 -clean | grep -F -e 'dyld: Library not loaded')" != "" ];
 	source "$profile"
 	if [ "$(ncargex cpex08 -clean | grep -F -e 'dyld: Library not loaded')" != "" ]; then
 		echo "Repairs failed.  Unable to successfully link all libraries.  Please see the NCL website for further help."
+	else
+		echo "Repairs succeeded!"
 	fi
+else
+	echo "Success!"
 fi
