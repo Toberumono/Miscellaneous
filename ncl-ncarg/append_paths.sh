@@ -18,7 +18,7 @@ path_path='PATH="$NCARG_ROOT/bin:$PATH"'
 fallback_path='DYLD_FALLBACK_LIBRARY_PATH="$(echo $(echo $(echo $(which gfortran | sed "s/\/[^\/]*$/\//")$(readlink $(which gfortran)) | sed "s/\/[^\/]*$/\//")../lib/gcc/$(readlink $(which gfortran | sed "s/\/[^\/]*$/\//")$(readlink $(which gfortran)) | grep -oE '\''([0-9]+\.)*[0-9]+$'\'')) | sed '\''s/\([^\/]*\)\/\.\.\///g'\''):$DYLD_FALLBACK_LIBRARY_PATH"'
 
 export "$root_path"
-export "$path_path"
+export "PATH=$NCARG_ROOT/bin:$PATH"
 
 if [ "$(uname -s)" == "Darwin" ]; then
 	export "$fallback_path"
