@@ -11,12 +11,12 @@
 ant_path="$HOME/.ant"
 ant_current_path="$ant_path/current"
 
-path_path='PATH="'"$ant_current_path"'/bin:$PATH"'
+path_path='export PATH="'"$ant_current_path"'/bin:$PATH"'
 
-update_rc "Apache Ant" "$profile" $path_path
+update_rc "Apache Ant" "$profile" "$path_path"
 
 for var in "$@"; do
-	update_rc "Apache Ant" "$var" $path_path
+	update_rc "Apache Ant" "$var" "$path_path"
 done
 
 #The should_reopen variable is added by the update_rc.sh script.

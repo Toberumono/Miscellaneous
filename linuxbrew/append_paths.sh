@@ -9,15 +9,15 @@
 . <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/get_profile.sh")
 
 [ "$(which brew)" != "" ] && brewery_path="$(brew --prefix)" || brewery_path="$HOME/.linuxbrew"
-path_path='PATH="'$brewery_path'/bin:$PATH"'
-man_path='MANPATH="'$brewery_path'/share/man:$MANPATH"'
-info_path='INFOPATH="'$brewery_path'/share/info:$INFOPATH"'
+path_path='export PATH="'$brewery_path'/bin:$PATH"'
+man_path='export MANPATH="'$brewery_path'/share/man:$MANPATH"'
+info_path='export INFOPATH="'$brewery_path'/share/info:$INFOPATH"'
 
 [ "$(uname -s)" == "Darwin" ] && brewery="Homebrew" || brewery="Linuxbrew"
-update_rc "$brewery" "$profile" $path_path $man_path $info_path
+update_rc "$brewery" "$profile" "$path_path" "$man_path" "$info_path"
 
 for var in "$@"; do
-	update_rc "$brewery" "$var" $path_path $man_path $info_path
+	update_rc "$brewery" "$var" "$path_path" "$man_path" "$info_path"
 done
 
 #The should_reopen variable is added by the update_rc.sh script.

@@ -24,7 +24,7 @@ Executing this script from within another script with
 ```bash
 . <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/update_rc.sh")
 ```
-will intialize a function called `update_rc()` which takes a 'client' (the name of the thing it is adding the export lines for (e.g. JDK, Linuxbrew), a path to a file, and one or more export lines to add to the file with the first instance of 'export ' removed.<br>
+will intialize a function called `update_rc()` which takes a 'client' (the name of the thing it is adding the lines for (e.g. JDK, Linuxbrew), a path to a file, and one or lines to add to the file.<br>
 This function adds any filenames that it had to add lines to to a variable called `should_reopen`, which is set to `""` when the `update_rc.sh` script is run.
 
 ### A few notes

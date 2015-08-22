@@ -11,13 +11,13 @@
 jvm_path="$HOME/.jvm"
 jvm_current_path="$jvm_path/current"
 
-path_path='PATH="'"$jvm_current_path"'/bin:$PATH"'
-man_path='MANPATH="'"$jvm_current_path"'/man:$MANPATH"'
+path_path='export PATH="'"$jvm_current_path"'/bin:$PATH"'
+man_path='export MANPATH="'"$jvm_current_path"'/man:$MANPATH"'
 
-update_rc "JDK" "$profile" $path_path $man_path
+update_rc "JDK" "$profile" "$path_path" "$man_path"
 
 for var in "$@"; do
-	update_rc "JDK" "$var" $path_path $man_path
+	update_rc "JDK" "$var" "$path_path" "$man_path"
 done
 
 #The should_reopen variable is added by the update_rc.sh script.
