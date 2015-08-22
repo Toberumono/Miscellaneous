@@ -6,7 +6,7 @@ Furthermore, they are almost exclusively used as libraries - there is almost no 
 ### Usage
 Executing this script from within another script with
 ```bash
-. <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/unsudo.sh")
+. <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/unsudo.sh")
 ```
 will initialize a variable called `unsudo`.  If the script was run as sudo, it will equal `"sudo -u calling_user"` (e.g. `"sudo -u Toberumono"`).  Otherwise, it will equal `""`.<br>
 In order to use `unsudo`, place `$unsudo` before commands that should be run without `sudo` where `sudo` would normally be.<br>
@@ -22,7 +22,7 @@ This script is designed to be used to detect whether a export line is in a .shel
 ### Usage
 Executing this script from within another script with
 ```bash
-. <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
+. <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/update_rc.sh")
 ```
 will intialize a function called `update_rc()` which takes a 'client' (the name of the thing it is adding the export lines for (e.g. JDK, Linuxbrew), a path to a file, and one or more export lines to add to the file with the first instance of 'export ' removed.<br>
 This function adds any filenames that it had to add lines to to a variable called `should_reopen`, which is set to `""` when the `update_rc.sh` script is run.

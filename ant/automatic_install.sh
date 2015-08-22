@@ -4,7 +4,7 @@
 
 #Get the command to use when grabbing subscripts from GitHub.
 [ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
-. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/unsudo.sh")
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/unsudo.sh")
 
 #Grab the most recent Ant version from the changelog.
 ant_version_pattern='([0-9]+\.)*[0-9]+$'

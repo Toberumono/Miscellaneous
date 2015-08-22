@@ -5,8 +5,8 @@
 [ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
 
 #Download the update_rc.sh script from my repo and run its contents within the current shell via an anonymous file descriptor.
-. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
-. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/get_profile.sh")
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/update_rc.sh")
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/get_profile.sh")
 
 ant_path="$HOME/.ant"
 ant_current_path="$ant_path/current"

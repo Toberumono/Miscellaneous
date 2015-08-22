@@ -17,5 +17,5 @@ else
 	echo "Unable to find a valid package manager.  Attempting to proceed."
 fi
 
-. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/unsudo.sh")
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/unsudo.sh")
 ($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/linuxbrew/sudoless_install.sh") | $unsudo bash

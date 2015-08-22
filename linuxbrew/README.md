@@ -15,8 +15,8 @@ The script (`linuxbrew/automatic_install.sh`) itself does the following:
 1. Determines the correct system package manager (either `apt-get` or `yum`)
   * If it cannot find either one, it will attempt to complete the install; however, this comes with the caveats enumerated in the [How to use `sudoless_install.sh`](#htulsi) section.
 2. Runs the appropriate support-software install command from the [Linuxbrew](https://github.com/Homebrew/linuxbrew) installation instructions.
-3. It internally downloads and executes the `general/unsudo.sh` script from this repository to determine the original user.
-4. It internally downloads and executes the `linuxbrew/sudoless_install.sh` script from this repository using the result from `general/unsudo.sh`.
+3. It internally downloads and executes the `common/unsudo.sh` script from this repository to determine the original user.
+4. It internally downloads and executes the `linuxbrew/sudoless_install.sh` script from this repository using the result from `common/unsudo.sh`.
   + It uses the pipe version of the command given in the [How to Use `sudoless_install.sh`](#htulsi) section so it doesn't require the user to mess with temporary files.
   + `linuxbrew/sudoless_install.sh` is used because it already performs all of the correct steps to test if it can install Linuxbrew and then installs it.
 

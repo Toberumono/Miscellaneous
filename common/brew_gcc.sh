@@ -5,8 +5,8 @@
 [ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
 
 #Download the update_rc.sh and get_profile.sh scripts from my repo and run their contents within the current shell via an anonymous file descriptor.
-. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
-. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/get_profile.sh")
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/update_rc.sh")
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/get_profile.sh")
 
 brew install gcc
 gfortran_version="$(gfortran -dumpversion | cut -d. -f1)"

@@ -5,8 +5,8 @@
 [ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
 
 #Download the update_rc.sh and get_profile.sh scripts from my repo and run their contents within the current shell via an anonymous file descriptor.
-. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/update_rc.sh")
-. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/general/get_profile.sh")
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/update_rc.sh")
+. <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/get_profile.sh")
 #Okay, this line is /really/ long.  Basically, on Darwin systems (OSX), this gets the path to the libgfortran.3.dylib's containing folder.  This should /not/ be called on Linux systems.
 #This basically takes advantage of a pattern in how the gfortran executable is linked by Homebrew.  It should work with other installations, and, even if it doesn't, it won't break them.
 #This also has the advantage of automatically picking the library from whichever build of gfortran is currently in use.
