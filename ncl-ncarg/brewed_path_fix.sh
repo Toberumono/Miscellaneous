@@ -14,7 +14,7 @@ fallback_path='export DYLD_FALLBACK_LIBRARY_PATH="$(echo $(echo $(echo $(which g
 
 ncl_current="$(brew --prefix)/ncl-current"
 ncarg_root_path="export NCARG_ROOT=$ncl_current"
-path_path='export Path=$NCARG_ROOT/bin:$PATH'
+path_path='export PATH=$NCARG_ROOT/bin:$PATH'
 
 update_rc "Brewed NCAR-NCL" "$profile" "$ncarg_root_path" "$path_path" "$fallback_path"
 
