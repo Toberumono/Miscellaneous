@@ -7,13 +7,10 @@
 #Download the update_rc.sh and get_profile.sh scripts from my repo and run their contents within the current shell via an anonymous file descriptor.
 . <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/update_rc.sh")
 . <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/get_profile.sh")
-#Okay, this line is /really/ long.  Basically, on Darwin systems (OSX), this gets the path to the libgfortran.3.dylib's containing folder.  This should /not/ be called on Linux systems.
-#This basically takes advantage of a pattern in how the gfortran executable is linked by Homebrew.  It should work with other installations, and, even if it doesn't, it won't break them.
-#This also has the advantage of automatically picking the library from whichever build of gfortran is currently in use.
 
-ncl_current="$(brew --prefix)/ncl-current"
-ncarg_root_path="export NCARG_ROOT=$ncl_current"
+ncarg_root_path="export NCARG_ROOT=$(brew --prefix)/ncl-current"
 path_path='export PATH=$NCARG_ROOT/bin:$PATH'
+#This is basically just the command recommended in the caveats for the ncar-ncl cask in Homebrew.
 fallback_path='export DYLD_FALLBACK_LIBRARY_PATH=$(dirname $(gfortran --print-file-name libgfortran.3.dylib)):$DYLD_FALLBACK_LIBRARY_PATH'
 
 update_rc "Brewed NCAR-NCL" "$profile" "$ncarg_root_path" "$path_path" "$fallback_path"
