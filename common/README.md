@@ -1,4 +1,4 @@
-# <a name="General"></a>General
+# <a name="Common"></a>Common
 The files in this directory are not related to a single specific program, and are used in a variety of contexts.
 Furthermore, they are almost exclusively used as libraries - there is almost no point in calling them on their own.
 
