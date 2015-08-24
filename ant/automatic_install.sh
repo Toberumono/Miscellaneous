@@ -45,7 +45,7 @@ ant_path="$HOME/.ant"
 mkdir -p "$ant_path"
 
 [ "$(which wget)" == "" ] && pull_command="curl -fSL" || pull_command="wget -O -" #We /definitely/ want a progress bar for this next command.
-($pull_command "http://apache.mirrors.tds.net//ant/binaries/apache-ant-$ant_version-bin.tar.gz") | tar -xz -C "$HOME/.ant"
+($pull_command "http://apache.mirrors.tds.net//ant/binaries/apache-ant-$ant_version-bin.tar.gz") | $unsudo tar -xz -C "$HOME/.ant"
 [ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
 
 ant_installed_path="$(ls -dt1 $ant_path/apache-ant* | head -1)"
