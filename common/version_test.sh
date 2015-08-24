@@ -29,12 +29,9 @@ version_test() {
 	done
 	if [ "${#cv_arr[@]}" -gt "${#av_arr[@]}" ]; then
 		echo "0"
-		return;
 	elif [ "${#cv_arr[@]}" -lt "${#av_arr[@]}" ]; then
 		echo "2"
-		return;
 	else
 		echo "1"
-		return;
 	fi
 }
