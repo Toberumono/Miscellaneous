@@ -15,15 +15,9 @@ version_test() {
 	local av_arr=""
 	IFS='.' read -ra cv_arr <<< "$1"
 	IFS='.' read -ra av_arr <<< "$2"
-	if [ "${#cv_arr[@]}" -gt "${#av_arr[@]}" ]; then
-		echo "0"
-		return 0;
-	elif [ "${#cv_arr[@]}" -lt "${#av_arr[@]}" ]; then
-		echo "2"
-		return 0;
-	fi
 	local i="0"
-	while [ "$i" -lt "${#cv_arr[@]}" ]; do
+	[ "${#cv_arr[@]}" -gt "${#av_arr[@]}" ] && local lim="${#cv_arr[@]}" || local lim="${#av_arr[@]}"
+	while [ "$i" -lt "lim" ]; do
 		if [ "${cv_arr[$i]}" -gt "${av_arr[$i]}" ]; then
 			echo "0"
 			return 0;
@@ -33,6 +27,14 @@ version_test() {
 		fi
 		(( i = i + 1 ))
 	done
-	echo "1"
-	return 0;
+	if [ "${#cv_arr[@]}" -gt "${#av_arr[@]}" ]; then
+		echo "0"
+		return 0;
+	elif [ "${#cv_arr[@]}" -lt "${#av_arr[@]}" ]; then
+		echo "2"
+		return 0;
+	else
+		echo "1"
+		return 0;
+	fi
 }
