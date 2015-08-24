@@ -22,7 +22,7 @@ ln -sf "$ncl_installed_path" "$ncl_path/current"
 echo "Now testing your new NCL-NCARG installation."
 if [ "$(ncargex cpex08 -clean | grep -F -e 'dyld: Library not loaded')" != "" ]; then
 	echo "Attempting to repair your paths."
-	bash <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/brew_path_fix.sh")
+	bash <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/brewed_path_fix.sh")
 	source "$profile"
 	if [ "$(ncargex cpex08 -clean | grep -F -e 'dyld: Library not loaded')" != "" ]; then
 		echo "Repairs failed.  Unable to successfully link all libraries.  Please see the NCL website for further help."
