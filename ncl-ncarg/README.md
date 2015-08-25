@@ -6,7 +6,7 @@ All of the files in this directory relate to [NCL-NCARG](https://www.ncl.ucar.ed
 
 Run the following command in terminal (make sure you copy and paste all of it - this scrolls):
 ```bash
-bash <(wget -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/automatic_install.sh")
+bash <(wget --show-progress -qO - "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/automatic_install.sh")
 ```
 The command downloads the `ncl-ncarg/automatic_install.sh` script from this repository, pipes it into bash, and executes it.  Additionally, the command automatically cleans up the temporary "file" after it is done.
 The script (`ncl-ncarg/automatic_install.sh`) itself does the following:
@@ -21,7 +21,7 @@ The script (`ncl-ncarg/automatic_install.sh`) itself does the following:
 
 Run the following command in terminal (make sure you copy and paste all of it):
 ```bash
-bash <(wget -qO - https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/sudoless_install.sh)
+bash <(wget --show-progress -qO - https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/sudoless_install.sh)
 ```
 The command downloads the `ncl-ncarg/sudoless_install.sh` script from this repository, pipes it into bash, and executes it.  Additionally, the command automatically cleans up the temporary "file" after it is done.
 The script (`ncl-ncarg/sudoless_install.sh`) itself does the following:
@@ -43,7 +43,7 @@ The script (`ncl-ncarg/sudoless_install.sh`) itself does the following:
 
 Run the following command in terminal (make sure you copy and paste all of it):
 ```bash
-bash <(wget -qO - https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/append_paths.sh)
+bash <(wget --show-progress -qO - https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/append_paths.sh)
 ```
 The command downloads the `ncl-ncarg/append_paths.sh` script from this repository, pipes it into bash, and executes it.  Additionally, the command automatically cleans up the temporary "file" after it is done.
 The script (`ncl-ncarg/append_paths.sh`) itself does the following:

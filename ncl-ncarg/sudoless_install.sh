@@ -2,7 +2,7 @@
 #Author: Toberumono (https://github.com/Toberumono)
 
 #Get the command to use when grabbing subscripts from GitHub.
-[ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
+[ "$(which wget)" == "" ] && pull_command="curl -#fsSL" || pull_command="wget --show-progress -qO -"
 
 ncl_tar="$(ls -t1 $(pwd)/ncl_ncarg* | head -1)"
 ncl_path="$HOME/.ncl-ncarg"

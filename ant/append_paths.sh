@@ -2,7 +2,7 @@
 #Author: Toberumono (https://github.com/Toberumono)
 
 #Get the command to use when grabbing subscripts from GitHub.
-[ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
+[ "$(which wget)" == "" ] && pull_command="curl -#fsSL" || pull_command="wget --show-progress -qO -"
 
 #Download the update_rc.sh script from my repo and run its contents within the current shell via an anonymous file descriptor.
 . <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/update_rc.sh")

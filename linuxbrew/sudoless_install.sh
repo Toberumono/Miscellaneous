@@ -2,7 +2,7 @@
 #Author: Toberumono (https://github.com/Toberumono)
 
 #Get the command to use when grabbing subscripts from GitHub.
-[ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
+[ "$(which wget)" == "" ] && pull_command="curl -#fsSL" || pull_command="wget --show-progress -qO -"
 
 if [ "$(which brew)" != "" ]; then
 	echo "Linuxbrew is already installed."
@@ -38,7 +38,7 @@ fi
 
 if [ "$(which brew)" == "" ]; then
 	if [ "$(which curl)" != "" ]; then
-		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+		ruby -e "$(curl -#fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 	else
 		git clone "https://github.com/Homebrew/linuxbrew.git" "$HOME/.linuxbrew"
 	fi

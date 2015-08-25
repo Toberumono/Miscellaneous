@@ -3,7 +3,7 @@
 #Author: Toberumono (https://github.com/Toberumono)
 
 #Get the command to use when grabbing subscripts from GitHub.
-[ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
+[ "$(which wget)" == "" ] && pull_command="curl -#fsSL" || pull_command="wget --show-progress -qO -"
 . <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/unsudo.sh")
 . <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/version_test.sh")
 
@@ -36,9 +36,9 @@ fi
 ant_path="$HOME/.ant"
 mkdir -p "$ant_path"
 
-[ "$(which wget)" == "" ] && pull_command="curl -fSL" || pull_command="wget -O -" #We /definitely/ want a progress bar for this next command.
+[ "$(which wget)" == "" ] && pull_command="curl -#fSL" || pull_command="wget -O -" #We /definitely/ want a progress bar for this next command.
 ($pull_command "http://apache.mirrors.tds.net//ant/binaries/apache-ant-$ant_version-bin.tar.gz") | $unsudo tar -xz -C "$HOME/.ant"
-[ "$(which wget)" == "" ] && pull_command="curl -fsSL" || pull_command="wget -qO -"
+[ "$(which wget)" == "" ] && pull_command="curl -#fsSL" || pull_command="wget --show-progress -qO -"
 
 ant_installed_path="$(ls -dt1 $ant_path/apache-ant* | head -1)"
 ln -sf "$ant_installed_path" "$ant_path/current"
