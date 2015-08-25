@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Detects the appropriate ncl_tarball to download using the current_ncl-ncarg_versions.csv file.
 #If it cannot determine a single archive, it asks the user which one they want.
 #Last, it downloads the archive to the current working directory.

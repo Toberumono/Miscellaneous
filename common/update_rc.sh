@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #A support function used to append export commands to .bashrc, .zshrc, etc.
 #Author: Toberumono (https://github.com/Toberumono)
 

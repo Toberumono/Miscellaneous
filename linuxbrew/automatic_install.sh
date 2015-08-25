@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #This script requires sudo privileges
 #Author: Toberumono (https://github.com/Toberumono)
 

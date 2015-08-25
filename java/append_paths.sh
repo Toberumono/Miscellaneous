@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Add Java into PATH and MANPATH
 #Author: Toberumono (https://github.com/Toberumono)
 

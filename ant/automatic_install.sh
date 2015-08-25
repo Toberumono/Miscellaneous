@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #This script automatically downloads the latest version of ant, installs it
 #in "$HOME/.ant", and adds the relevant exports to the appropriate shell profile file.
 #Author: Toberumono (https://github.com/Toberumono)

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Install the most recent version of Apache Ant without sudo
 #Author: Toberumono (https://github.com/Toberumono)
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Brews gcc and sets the relevant environment variables in the profile file.
 #Author: Toberumono (https://github.com/Toberumono)
 

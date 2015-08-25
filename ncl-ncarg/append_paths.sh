@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Add Apache NCL-NGARG into NCARG_ROOT and PATH
 #Author: Toberumono (https://github.com/Toberumono)
 

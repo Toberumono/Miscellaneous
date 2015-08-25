@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Determines whether a given program is up to date given the installed version and the available version.
 #Author: Toberumono (https://github.com/Toberumono)
 

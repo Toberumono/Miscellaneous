@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Adds the needed fallback path to the user's appropriate profile file.
 #Author: Toberumono (https://github.com/Toberumono)
 

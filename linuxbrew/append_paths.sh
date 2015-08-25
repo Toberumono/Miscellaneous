@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Add Linuxbrew into PATH, MANPATH, and INFOPATH
 #Author: Toberumono (https://github.com/Toberumono)
 

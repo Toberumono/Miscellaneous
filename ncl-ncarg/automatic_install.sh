@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Downloads the appropriate version of the NCL-NCARG tarball
 #and installs it using ncl_downloader.sh and sudoless_install.sh.
 #Author: Toberumono (https://github.com/Toberumono)

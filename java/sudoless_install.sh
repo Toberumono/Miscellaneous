@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Install the most recent JDK without sudo
 #Author: Toberumono (https://github.com/Toberumono)
 

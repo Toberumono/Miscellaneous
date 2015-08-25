@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Add Apache Ant into PATH and MANPATH
 #Author: Toberumono (https://github.com/Toberumono)
 

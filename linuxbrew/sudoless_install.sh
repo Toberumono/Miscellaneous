@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Installs Linuxbrew without using sudo (if possible)
 #Author: Toberumono (https://github.com/Toberumono)
 

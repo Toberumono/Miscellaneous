@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Grabs the profile file for the current shell taking the OS into account (e.g. ~/.bashrc or ~/.bash_profile)
 #Author: Toberumono (https://github.com/Toberumono)
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #Install the most recent version of NCL-NCARG without sudo
 #Author: Toberumono (https://github.com/Toberumono)
 
