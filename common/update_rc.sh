@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 #A support function used to append export commands to .bashrc, .zshrc, etc.
+#At this point, it can be used for any command on any file, but, it's mainly used for appending export commands.
 #Author: Toberumono (https://github.com/Toberumono)
 
 should_reopen=""
 
 update_rc() {
-	client="$1"
+	local client="$1"
 	shift
-	file_path="$1"
+	local file_path="$1"
 	shift
 
-	added=false
+	local added=false
 
 	for p in "$@"; do
-		add_path=$(grep -F -e "$p" "$file_path")
+		local add_path=$(grep -F -e "$p" "$file_path")
 		if [ "$add_path" != "" ]; then
 			echo "$p is already in $file_path."
 			continue;
