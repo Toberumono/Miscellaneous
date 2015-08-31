@@ -4,7 +4,8 @@ A collection of potentially useful scripts and support files that don't fit into
 A few quick notes:
 
 * The commands given to execute the scripts use `wget` to pipe the script into a anonymous file descriptor (temporary "file").  This eliminates the need for external cleanup because the shell automatically handles it.
-* These scripts have been tested on bash 4.3 only.  While they *should* work on all recent unix shells, don't run them on anything important without verifying that they work with your chosen shell.
+* These scripts have been tested on bash 4.3+ only.  While they *should* work on all recent Unix shells, don't run them on anything important without verifying that they work with your chosen shell.
+  *This means that they will **not** work on Mac OSX by default.  Fortunately, fixing that is incredibly easy.  Just follow the instructions here: [https://github.com/Toberumono/Miscellaneous/wiki/Installing-Bash-4.3-on-Mac-OSX](https://github.com/Toberumono/Miscellaneous/wiki/Installing-Bash-4.3-on-Mac-OSX)
 * Any script marked with "**This is a Linux-only script.**" is *Linux-only for a reason*.  You will break a *lot* of stuff if you try to run them on OSX.
 * If you think that you've found a bug in any of these, and you know how to fix it, create a pull request!
 * The scripts assume that your system has wget.  If running `which wget` in Terminal does not print a path, you will need to install it.
