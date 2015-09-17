@@ -11,6 +11,17 @@
 
 brew install gcc
 
+ver="$(gfortran -dumpversion | cut -d. -f1)"
+if [ "$ver" -lt "5" ]; then
+	ver="$(gfortran -dumpversion | cut -d. -f1,2)"
+fi
+
+update_rc "Brewed gcc" "$profile" "CC=$(which gcc-$ver)" "CXX=$(which g++-$ver)" "FC=$(which gfortran)"
+
+for var in "$@"; do
+	update_rc "Brewed gcc" "$var" "CC=$(which gcc-$ver)" "CXX=$(which g++-$ver)" "FC=$(which gfortran)"
+done
+
 #The should_reopen variable is added by the update_rc.sh script.
 [ "$should_reopen" == "$profile" ] && source "$profile"
 if [ "$should_reopen" != "" ]; then
