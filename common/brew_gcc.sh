@@ -10,11 +10,6 @@
 . <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/get_profile.sh")
 
 brew install gcc
-update_rc "Brewed gcc" "$profile" "CC=$(which gcc-5)" "CXX=$(which g++-5)" "FC=$(which gfortran)"
-
-for var in "$@"; do
-	update_rc "Brewed gcc" "$var" "CC=$(which gcc-5)" "CXX=$(which g++-5)" "FC=$(which gfortran)"
-done
 
 #The should_reopen variable is added by the update_rc.sh script.
 [ "$should_reopen" == "$profile" ] && source "$profile"
