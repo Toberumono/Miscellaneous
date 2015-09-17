@@ -10,16 +10,10 @@
 . <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/common/get_profile.sh")
 
 brew install gcc
-gfortran_version="$(gfortran -dumpversion | cut -d. -f1)"
-if [ "$gfortran_version" -lt "5" ]; then
-	gfortran_version="$(gfortran -dumpversion | cut -d. -f1,2)"
-fi
-ln -sf "$(which gcc-$gfortran_version)" "$(brew --prefix)/bin/gcc"
-ln -sf "$(which g++-$gfortran_version)" "$(brew --prefix)/bin/g++"
-update_rc "Brewed gcc" "$profile" "CC=$(which gcc)" "CXX=$(which g++)" "FC=$(which gfortran)"
+update_rc "Brewed gcc" "$profile" "CC=$(which gcc-5)" "CXX=$(which g++-5)" "FC=$(which gfortran)"
 
 for var in "$@"; do
-	update_rc "Brewed gcc" "$var" "CC=$(which gcc)" "CXX=$(which g++)" "FC=$(which gfortran)"
+	update_rc "Brewed gcc" "$var" "CC=$(which gcc-5)" "CXX=$(which g++-5)" "FC=$(which gfortran)"
 done
 
 #The should_reopen variable is added by the update_rc.sh script.
