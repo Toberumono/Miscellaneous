@@ -1,0 +1,18 @@
+#!/bin/bash
+p="www.google.com"
+co=10
+args="$#"
+if [ $args -ge 1 ]; then
+	if [ "$1" == "-h" -o "$1" == "-help" ]; then
+		echo "Usage: nettest [ip or url] [number of times to ping]"
+		echo "Default: ping -c 10 www.google.com"
+		exit
+	elif [ "$1" != "web" -a "$1" != "Web" ]; then
+		p=$1
+	fi
+fi
+if [ $args -ge 2 ]; then
+	co=$2
+fi
+
+ping -c "$co" "$p"
