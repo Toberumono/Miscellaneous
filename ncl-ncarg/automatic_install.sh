@@ -4,7 +4,7 @@
 #Author: Toberumono (https://github.com/Toberumono)
 
 #Get the command to use when grabbing subscripts from GitHub.
-[ "$(which wget)" == "" ] && pull_command="curl -#fsSL" || pull_command="wget --show-progress -qO -"
+[ "$(which wget)" == "" ] && pull_command="curl -#fsSL" || pull_command="wget -qO -"
 
 . <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/ncl_downloader.sh")
 . <($pull_command "https://raw.githubusercontent.com/Toberumono/Miscellaneous/master/ncl-ncarg/sudoless_install.sh")

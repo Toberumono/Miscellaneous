@@ -3,7 +3,7 @@
 #If it cannot determine a single archive, it asks the user which one they want.
 #Last, it downloads the archive to the current working directory.
 #Author: Toberumono (https://github.com/Toberumono)
-[ "$(which wget)" == "" ] && pull_command="curl -#fsSL" || pull_command="wget --show-progress -qO -"
+[ "$(which wget)" == "" ] && pull_command="curl -#fsSL" || pull_command="wget -qO -"
 
 os_ver=""
 if [ "$(uname -s)" == "Darwin" ]; then #We are running on a Mac
