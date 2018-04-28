@@ -10,7 +10,7 @@
 
 #Grab the most recent Ant version from the changelog.
 ant_version_pattern='([0-9]+\.)*[0-9]+$'
-ant_version="$( ($pull_command http://supergsego.com/apache//ant/README.html) | grep -E '^Changes' | grep -oE $ant_version_pattern)"
+ant_version="$( ($pull_command http://supergsego.com/apache//ant/README.html) | grep -E '^Release Notes of Apache Ant ' | grep -oE $ant_version_pattern)"
 echo "Available Ant version: $ant_version"
 
 should_install=1
